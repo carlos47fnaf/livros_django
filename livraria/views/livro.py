@@ -1,10 +1,10 @@
 from rest_framework.viewsets import ModelViewSet
-# from rest_framework.permissions import IsAuthenticated
 
 from livraria.models import Livro
-from livraria.serializers import (
-    LivroSerializer, 
-    LivroDetailSerializer)
+from livraria.serializers import LivroDetailSerializer, LivroSerializer
+
+# from rest_framework.permissions import IsAuthenticated
+
 
 
 class LivroViewSet(ModelViewSet):
@@ -14,4 +14,5 @@ class LivroViewSet(ModelViewSet):
         if self.action in ["list", "retrieve"]:
             return LivroDetailSerializer
         return LivroSerializer
+
     # permission_classes = [IsAuthenticated]
